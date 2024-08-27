@@ -1,0 +1,15 @@
+<!-- flash messages -->
+<!-- listings section -->
+<% if(success && success.length){ %>
+    <div class="alert col-6 alert-success alert-dismissible offset-3 fade show align-items-center" role="alert">
+        <%= success %>
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+    <% } %>
+
+<% if(error && error.length){ %>
+    <div class="alert col-6 alert-danger alert-dismissible fade show offset-3" role="alert">
+        <%= error %>
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+<% } %>

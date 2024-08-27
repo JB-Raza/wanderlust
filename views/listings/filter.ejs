@@ -1,0 +1,12 @@
+<!-- using ejs mate to add layouts -->
+<%- layout("/layouts/boilerplate") %>
+
+    <body>
+        <%- include('../includes/categories.ejs') %>
+        <!-- no data available -->
+        <% if(!allListings.length){ %>
+            <%- include("../includes/NoData.ejs") %>
+                <% } %>
+        <%- include("../includes/allListings.ejs") %>
+
+    </body>

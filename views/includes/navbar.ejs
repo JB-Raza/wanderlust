@@ -1,0 +1,41 @@
+<nav class="navbar navbar-expand-lg bg-body-light border-bottom mb-2 sticky-top">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="/listings"><i class="fa-regular fa-compass"></i></a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+      <!-- 1st group icon -->
+      <div class="navbar-nav">
+        <a class="nav-link fw-bold" href="/listings">Explore</a>
+      </div>
+
+      <!-- 2nd group (search) -->
+      <div class="navbar-nav ms-auto">
+        <form class="d-flex mx-1" role="search" action="/listings/search/" method="get">
+          <input class="form-control search-input" name="searchTerm" type="search" placeholder="Search"
+            aria-label="Search">
+          <button class="btn search-btn" type="submit"><i
+              class="fa-solid fa-magnifying-glass d-inline me-2"></i>Search</button>
+        </form>
+      </div>
+
+      <!-- 3rd group login/signup -->
+      <div class="navbar-nav ms-auto btn-group" role="group">
+        <a class="nav-link fw-bold" href="/listings/new">Airbnb your home</a>
+        <% if(currUser==undefined){ %>
+          <a class="nav-link btn fw-bold btn-sm custom-btn custom-btn-left" href="/login">Login</a>
+          <a class="nav-link btn btn-sm fw-bold custom-btn custom-btn-right" href="/signup">Signup</a>
+          <% } else{ %>
+            <% if(currUser){ %>
+              <p class="fw-bold fs-6 mx-3 my-auto">
+                <%= currUser.username %>
+              </p>
+              <% } %>
+                <a class="nav-link btn btn-sm rounded-2 fw-bold theme-btn" href="/logout">Log out</a>
+                <% } %>
+
+      </div>
+    </div>
+  </div>
+</nav>

@@ -1,0 +1,27 @@
+<!-- all Listings -->
+<div class="row all-listings row-cols-lg-5 row-cols-md-4 row-cols-sm-2">
+
+    <% for(let listing of allListings ){ %>
+        <a href="/listings/<%= listing._id %>" class="listing-link mb-5 mx-1 p-0">
+            <div class="card listing-card">
+                <img src="<%= listing.image.url %>" class="card-img-top" alt="listing image" style="height: 18rem;">
+                <div class="card-img-overlay">overlay using bootstrap</div>
+                <div class="card-body p-0 m-0">
+                    <h6 class="card-title p-0 mb-1">
+                        <b>
+                            <%= listing.title %>
+                        </b>
+                    </h6>
+                    <p class="card-text">
+                        Rs.<%= listing.price %> / night
+                            <i class="tax-rate"> &nbsp; &nbsp; +18% GST</i>
+                    </p>
+                    <p class="card-text">
+                        <%= listing.location %>, <%= listing.country %>
+                    </p>
+
+                </div>
+            </div>
+        </a>
+        <% } %>
+</div>

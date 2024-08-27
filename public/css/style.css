@@ -1,0 +1,263 @@
+
+/* variables */
+:root{
+    --themeColor:#fe424d;
+    /* --themeColor:#d4a300;   golden  */
+    /* --themeColor:#27c200;   green */
+    /* --themeColor:#c814ff;   purple */
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box !important;
+}
+html{
+    box-sizing: border-box;
+}
+body{
+    font-family: "Plus Jakarta Sans", sans-serif !important;
+    min-height: 100vh;
+    max-width: 100vw;
+    overflow-x: hidden;
+    position: relative;
+    padding-bottom: 3rem;
+    box-sizing: inherit;
+    box-sizing: border-box;
+}
+
+.navbar{
+    font-family: poppins;
+    height: 5rem;
+    background-color: white;
+    width: 100%;
+    margin: auto;
+}
+.navbar-toggler{
+    /* background-color: var(--themeColor ); */
+    color: var(--themeColor) !important;
+    border: 1px solid var(--themeColor );
+}
+.navbar-toggler-icon{
+    color: var(--themeColor);
+}
+.navbar-toggler:focus{
+box-shadow: none;
+}
+.fa-compass{
+    color: var(--themeColor);
+    font-size: 2.3rem;
+}
+.nav-link{
+    color: #222222 !important;
+}
+/* footer */
+.foot-icon{
+    font-size: 1.5rem;
+}   
+.footer{
+    /* background-color: #cecece !important; */
+    background-color: var(--themeColor);
+    color: white;
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    bottom: 0;
+    padding: 10px 0px !important;
+}
+.footer-links a{
+    text-decoration: none;
+    color: white;
+}
+.footer-links a:hover{
+    text-decoration: underline;
+}
+
+/* navbar search */
+.search-btn {
+    background-color: var(--themeColor);
+    color: white;
+    border-radius: 2rem;
+  }
+
+.search-btn:hover {
+    background-color: var(--themeColor);
+    color: white;
+}
+.search-input{
+    margin-right: 0.3rem ;
+    padding: 0.5rem 2rem;
+    border-radius: 2rem;
+    width: 20vw;
+}
+
+.search-input:not(:focus){
+    width: 20vw !important;
+    transition-duration: 0.3s !important;
+    transition: width;
+}
+
+.search-input:focus{
+    width: 25vw !important;
+    transition: width;
+    transition-duration: 0.3s !important;
+}
+
+/* all listings */
+.all-listings{
+    /* width: 80vw !important; */
+    margin: auto;
+    /* border: 2px solid red !important; */
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+/* card */
+.card img{
+    width: 100%;
+    margin: auto;
+    border-radius: 0.5rem;
+}
+.listing-card{
+    margin: auto !important;
+    border: none !important;
+}
+.card .card-text{
+    font-size: 0.9rem;
+    margin: 0;
+    padding: 0;
+}
+.listing-link{
+    text-decoration: none;
+    color: #222222;
+}
+.card-img-overlay{
+    opacity: 0;
+    padding-top: 1.4rem;
+}
+.card-img-overlay:hover{
+    opacity: 0.2;
+    background-color: #ffff;
+}
+
+/* show.ejs */
+.show-img{
+    max-height: 80vh !important;
+    margin: auto;
+}
+.show-listing-col{
+    display: flex;
+    flex-direction: column;
+}
+.listing-preview-img{
+    max-width: 100px;
+}
+
+/* categrories */
+.all-categories{
+    display: flex;
+    align-items: center;
+    max-width: 100vw;
+    margin: auto;
+    position: sticky;
+    top: 5rem;
+    padding: 0.5vw 10vw;
+    z-index: 1000;
+    background-color: white;
+}
+.category{
+    text-align: center;
+    margin-right: 2vw;
+    opacity: 0.6;
+    font-size: large;
+}
+.category p{
+    font-size: small;
+}
+.category:hover{
+    opacity: 1;
+    cursor: pointer;
+    color: var(--themeColor);
+
+}
+
+/* taxes */
+ .tax-toggle{
+    border-radius: 1vw;
+    margin-left: auto;
+    padding: 0.7vw;
+    background-color: var(--themeColor);
+    color: white;
+ }
+ .tax-toggle:hover, .tax-toggle:hover *{
+    cursor: pointer;
+ }
+.tax-rate{
+    display: none;
+}
+
+/* tax filter */
+.form-check-input{
+    height: 1.1rem;
+    border: none;
+}
+.form-check-input:checked{
+    background-color: #d3000e !important;
+}
+
+.theme-btn{
+    background-color: var(--themeColor) !important;
+    color: white !important;
+}
+.theme-btn:hover{
+    background-color: var(--themeColor);
+    color: white;
+}
+
+.custom-btn{
+    width: 5vw;
+}
+.custom-btn-right{
+    border-radius: 0% 50% 50% 0% !important;
+}
+.custom-btn-left{
+    border-radius: 50% 0% 0% 50% !important;
+}
+.custom-btn:hover{
+    background-color: var(--themeColor);
+    color: white !important;
+}
+
+/* no data section in filter.ejs */
+.no-data{
+    text-align: center;
+    height: 50vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+
+
+
+/* universal for every element */
+
+a{
+    text-decoration: none;
+    color: black;
+}
+input:focus{
+    box-shadow: none !important; 
+    border: 1px solid var(--themeColor)!important;
+}
+textarea:focus{
+    box-shadow: none !important;
+    border: 2px solid var(--themeColor) !important;
+}
+button:focus{
+    box-shadow: none !important;   
+}
