@@ -1,16 +1,23 @@
 {
-  "engines": {
-    "node": "18.17.0"
-  },
   "name": "project-1-wanderlust",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "description": "Wanderlust travel and accommodation marketplace platform",
+  "main": "app.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node app.js",
+    "dev": "nodemon app.js"
   },
-  "keywords": [],
-  "author": "",
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "keywords": [
+    "express",
+    "mongodb",
+    "marketplace",
+    "travel",
+    "accommodations"
+  ],
+  "author": "Jahanzaib Raza",
   "license": "ISC",
   "dependencies": {
     "body-parser": "^1.20.2",
