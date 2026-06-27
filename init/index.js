@@ -1,23 +1,25 @@
-let mongoose = require('mongoose')
-let initData = require('./data.js')
-let Listing = require('../models/listing.js')
+const mongoose = require('mongoose')
+const initData = require('./data.js')
+const Listing = require('../models/listing.js')
 
+const MONGO_URL = process.env.MONGODB_URL || 'mongodb://127.0.0.1:27017/wanderlust'
 
-const initDB = async () => {
+async function initDB() {
     await Listing.deleteMany({})
-    // ('666f24813ed6412aaa133b55')
-    // map() method returns new array
-    initData.data = initData.data.map((obj) => ({
+    const seededListings = initData.data.map((obj) => ({
         ...obj,
         owner: '666f24813ed6412aaa133b55',
     }))
-    await Listing.insertMany(initData.data)
-    console.log('data initialized')
+    await Listing.insertMany(seededListings)
 }
 
-initDB()
-
-async function main(){
-    await mongoose.connect('mongodb://127.0.0.1:27017/wanderlust')
+async function main() {
+    await mongoose.connect(MONGO_URL)
+    await initDB()
+    await mongoose.disconnect()
 }
-main().then(() => console.log('database setted up'))
+
+main().catch((err) => {
+    console.error(err)
+    process.exit(1)
+})
