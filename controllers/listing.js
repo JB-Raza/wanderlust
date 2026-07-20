@@ -75,10 +75,12 @@ module.exports.renderUpdateForm = async (req, res) => {
     let listing = await Listing.findById(id)
     if (!listing) {
         req.flash("error", "listing not found")
-        res.redirect("/listings")
+        return res.redirect("/listings")
     }
-    let originalImgUrl = listing.image.url
-    originalImgUrl = originalImgUrl.replace("/upload", "/upload/w_250")
+    let originalImgUrl = listing.image && listing.image.url ? listing.image.url : ""
+    if (originalImgUrl) {
+        originalImgUrl = originalImgUrl.replace("/upload", "/upload/w_250")
+    }
     res.render('listings/editListing.ejs', { listing, originalImgUrl })
 }
 
