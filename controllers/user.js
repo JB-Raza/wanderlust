@@ -1,43 +1,42 @@
 const User = require("../models/user.js")
 
-module.exports.renderSignupForm =  (req, res) => {
+module.exports.renderSignupForm = (req, res) => {
     res.render("users/signup.ejs")
 }
 
 module.exports.signup = async (req, res, next) => {
-    let { username, email, password } = req.body
-    let user = new User({
-        username, email
-    })
-    let newUser = await User.register(user, password)
+    try {
+        let { username, email, password } = req.body
+        let user = new User({ username, email })
+        let newUser = await User.register(user, password)
 
-    // automatically login after signup
-    req.login(newUser, (err) => {
-        if (err) return next(err)
-        else {
-            req.flash('success', "welcome to wanderlust")
+        req.login(newUser, (err) => {
+            if (err) return next(err)
+            req.flash('success', "Welcome to Wanderlust")
             res.redirect("/listings")
-        }
-    })
+        })
+    } catch (e) {
+        req.flash("error", e.message)
+        res.redirect("/signup")
+    }
 }
 
-module.exports.renderLoginForm =  (req, res) => {
+module.exports.renderLoginForm = (req, res) => {
     res.render("users/login.ejs")
 }
 
 module.exports.login = async (req, res) => {
-    req.flash("success", "welcome back sir")
+    req.flash("success", "Welcome back")
     let redirectUrl = res.locals.redirectUrl || "/listings"
     res.redirect(redirectUrl)
 }
-module.exports.logout =  (req, res, next) => {
-    req.logout((err => {
+
+module.exports.logout = (req, res, next) => {
+    req.logout((err) => {
         if (err) {
             return next(err)
         }
-        else {
-            req.flash('success', "successfully logged out")
-            res.redirect('/listings')
-        }
-    }))
+        req.flash('success', "Successfully logged out")
+        res.redirect('/listings')
+    })
 }
